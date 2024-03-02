@@ -1,9 +1,7 @@
-﻿using System;
+﻿using Bogus;
+using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Linq;
-using Bogus;
-using Bogus.Extensions;
-using Microsoft.EntityFrameworkCore;
 using static System.Console;
 
 namespace EFCoreSeedDb
@@ -20,11 +18,11 @@ namespace EFCoreSeedDb
             .Include(b => b.Posts)
             .ToList();
 
-         foreach( var blog in blogs)
+         foreach (var blog in blogs)
          {
             WriteLine($"Blog Id: {blog.BlogId}");
             WriteLine($"Blog Url: {blog.Url}");
-            foreach( var post in blog.Posts )
+            foreach (var post in blog.Posts)
             {
                WriteLine($"  Post Id: {post.PostId}");
                WriteLine($"       Title: {post.Title}");
@@ -120,13 +118,13 @@ namespace EFCoreSeedDb
 
       private static void GenerateBlogs(int blogCount)
       {
-         for( var i = 0; i < blogCount; i++, BlogId++ )
+         for (var i = 0; i < blogCount; i++, BlogId++)
          {
             var blog = new Blog
-               {
-                  BlogId = BlogId,
-                  Url = f.Internet.Url()
-               };
+            {
+               BlogId = BlogId,
+               Url = f.Internet.Url()
+            };
 
             Blogs.Add(blog);
 
@@ -137,15 +135,15 @@ namespace EFCoreSeedDb
 
       private static void GeneratePost(Blog b, int postCount)
       {
-         for( var i = 0; i < postCount; i++, PostId++ )
+         for (var i = 0; i < postCount; i++, PostId++)
          {
             var post = new Post
-               {
-                  PostId = PostId,
-                  BlogId = b.BlogId,
-                  Title = f.Hacker.Phrase(),
-                  Content = f.Lorem.Sentence()
-               };
+            {
+               PostId = PostId,
+               BlogId = b.BlogId,
+               Title = f.Hacker.Phrase(),
+               Content = f.Lorem.Sentence()
+            };
 
             Posts.Add(post);
          }
