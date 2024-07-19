@@ -1,3 +1,17 @@
+## v35.6.0
+Release Date: 2024-04-27
+* PR 556: Remove obsolete/non-working LoremPixel image service. `Images.LoremPixelUrl()` is removed. Thanks @marijnz0r!
+* PR 557: Added `Bogus.Extensions.Belgium` extension methods below. Thanks @vyruz1986!
+* Added `f.Person.NationalNumber()` - Rijksregisternummer / Numéro Nationale
+
+## v35.5.1
+Release Date: 2024-04-27
+* PR 538: Fixes Invalid Costa Rica IBAN format. Thanks @dangerman!
+
+## v35.5.0
+Release Date: 2024-03-09
+* PR 500: Allows locally set time references for Date calculations instead of global statics. See Faker[T].UseDateTimeReference(), Faker.DateTimeReference, and DataSets.Date.LocalSystemClock. Thanks @garcipat!
+
 ## v35.4.1
 Release Date: 2024-03-02
 * PR 529: XML Docs: Add inclusive / exclusive number ranges documentation for Randomizer. Thanks @Mitchman215!
